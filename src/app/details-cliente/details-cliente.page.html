@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-item [routerLink]="['/clientes']">
+      <ion-icon name="arrow-back" slot="start"></ion-icon>
+      <ion-label>Volver</ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+  <h1 class="titulo">Detalles de Cliente</h1>
+    <!-- Usuario -->
+    <div class="input-field">
+      <input type="text"  spellcheck="false" value="Benjamin">
+      <label>Nombres</label>
+    </div>
+    <!-- Usuario -->
+    <div class="input-field">
+      <input type="text"  spellcheck="false" value="Gonzalez">
+      <label>Apellidos</label>
+    </div>
+
+    <div class="input-field">
+      <input type="number"  spellcheck="false" value="3">
+      <label>Cantidad de Monster</label>
+    </div>
+    <div class="input-field">
+      <input type="number"  spellcheck="false" value="5">
+      <label>Cantidad de Gatorade</label>
+    </div>
+    <div class="input-field">
+      <input type="text"  spellcheck="false" value="$100.000" style="border-color: red; color: red;">
+      <label style="color: red;">Monto en deuda</label>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <button [routerLink]="['/add-pago']" class="btn btn-monster">Pagar Deuda</button>
+  </ion-toolbar>
+</ion-footer>
+

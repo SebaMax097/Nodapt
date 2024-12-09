@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- <ion-title>ventas</ion-title> -->
+    <ion-item [routerLink]="['/inventario']">
+      <ion-icon name="arrow-back" slot="start"></ion-icon>
+      <ion-label>Volver</ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+  <h1 class="titulo">Registro de Venta</h1>
+  <h1 class="sub-titulo">Seleccionar producto, cantidad y precio</h1>
+    <ion-list [inset]="true">
+      <ion-item>
+        <button class="btn btn-monster">Monster</button> <button class="btn btn-gatorade">Gatorade</button>
+      </ion-item>
+        
+    </ion-list>
+  <!-- Usuario -->
+      <div class="input-field">
+        <input type="number" required spellcheck="false">
+        <label>Cantidad</label>
+      </div>
+  </div>
+  
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button class="btn btn-monster">Registrar en inventario</button>
+  </ion-toolbar>
+</ion-footer>

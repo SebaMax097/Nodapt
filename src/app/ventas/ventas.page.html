@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Menu -->
+    <ion-buttons slot="start">
+      <ion-menu-button color="success" menu="menuPrincipal"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Ventas</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="start" name="power" [routerLink]="['/sign-in']"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+  <h1 class="titulo">Listado Ventas</h1>
+  <h1 class="sub-titulo">Selecciona un cliente...</h1>
+    <ion-list [inset]="true">
+      <ion-item [routerLink]="['/add-venta']">
+        <!-- <ion-icon name="cart-outline" slot="end"></ion-icon> -->
+        <ion-label>Benjamin Gonzalez</ion-label>
+        <ion-icon name="play" slot="end"></ion-icon>
+      </ion-item>
+      <ion-item [routerLink]="['/add-venta']">
+        <ion-label>Sebastian Ramirez</ion-label>
+        <ion-icon name="play" slot="end"></ion-icon>
+      </ion-item>
+      <ion-item [routerLink]="['/add-venta']">
+        <ion-label>Samuel Alarcon</ion-label>
+        <ion-icon name="play" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

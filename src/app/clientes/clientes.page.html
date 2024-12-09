@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Menu -->
+    <ion-buttons slot="start">
+      <ion-menu-button color="success" menu="menuPrincipal"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Clientes</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="start" name="power" [routerLink]="['/sign-in']"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+  <h1 class="titulo">Listado Clientes</h1>
+  <h1 class="sub-titulo">Visualiza el detalle cliente...</h1>
+    <ion-list [inset]="true">
+      <ion-item >
+        <ion-label>Benjamin Gonzalez</ion-label>
+        <ion-icon name="information-circle" slot="end" [routerLink]="['/details-cliente']"></ion-icon>
+        <ion-icon name="create" slot="end" [routerLink]="['/edit-cliente']"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label>Sebastian Ramirez</ion-label>
+        <ion-icon name="information-circle" slot="end"  [routerLink]="['/details-cliente']"></ion-icon>
+        <ion-icon name="create" slot="end" [routerLink]="['/edit-cliente']"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label>Samuel Alarcon</ion-label>
+        <ion-icon name="information-circle" slot="end"  [routerLink]="['/details-cliente']"></ion-icon>
+        <ion-icon name="create" slot="end" [routerLink]="['/edit-cliente']"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+
+
+<ion-footer>
+  <ion-toolbar>
+    <button [routerLink]="['/add-cliente']" class="btn btn-monster">Agregar Cliente</button>
+  </ion-toolbar>
+</ion-footer>

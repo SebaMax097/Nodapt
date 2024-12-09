@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-item [routerLink]="['/clientes']">
+      <ion-icon name="arrow-back" slot="start"></ion-icon>
+      <ion-label>Volver</ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+  <h1 class="titulo">Pago de Deudas</h1>
+    <h3 class="">Detalles Cliente</h3>
+    <!-- Usuario -->
+    <div class="input-field">
+      <input type="text"  spellcheck="false" value="Benjamin">
+      <label>Nombres</label>
+    </div>
+    <!-- Usuario -->
+    <div class="input-field">
+      <input type="text"  spellcheck="false" value="Gonzalez">
+      <label>Apellidos</label>
+    </div>
+    <h3 class="">Detalles Deudas</h3>
+    <!-- Usuario -->
+    <div class="input-field">
+      <input type="text"  spellcheck="false" style="border-color: red; color: red;" value="$100.000">
+      <label style="color: red;">Monto en deuda</label>
+    </div>
+    <h3>Ingrese monto a pagar</h3>
+    <!-- Usuario -->
+    <div class="input-field">
+      <input type="text"  spellcheck="false">
+      <label>Monto a Pagar</label>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <button class="btn btn-monster">Pagar Deuda</button>
+  </ion-toolbar>
+</ion-footer>
+

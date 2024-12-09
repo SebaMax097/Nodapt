@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+:root {
+	/*Dark Monster*/
+	--ion-color-dark-monster: #3f7f0b;
+	--ion-color-dark-monster-rgb: 63,127,11;
+	--ion-color-dark-monster-contrast: #ffffff;
+	--ion-color-dark-monster-contrast-rgb: 255,255,255;
+	--ion-color-dark-monster-shade: #37700a;
+	--ion-color-dark-monster-tint: #528c23;
+    /* Monster */
+    --ion-monster: #95D600;
+	--ion-monster-rgb: 149,214,0;
+	--ion-monster-contrast: #000000;
+	--ion-monster-contrast-rgb: 0,0,0;
+	--ion-monster-shade: #83bc00;
+	--ion-monster-tint: #a0da1a;
+	/*Gatorade*/
+	--ion-gatorade: #8b0bd0;
+	--ion-gatorade-rgb: 139,11,208;
+	--ion-gatorade-contrast: #ffffff;
+	--ion-gatorade-contrast-rgb: 255,255,255;
+	--ion-gatorade-shade: #7a0ab7;
+	--ion-gatorade-tint: #9723d5;
+}
+*{    font-family: "Lora", serif;font-optical-sizing: auto;font-weight: 200;font-style: normal;  }
+/*--- ---------------- ---*/
+
+/*--- ---------------- ---*/
+.titulo{
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.8em;
+	color: var(--ion-monster);
+	margin-bottom: 0px;
+}
+.sub-titulo{
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1em;
+	color: var(--ion-color-dark-monster);
+	margin: 0px;
+}
+/*--- ---------------- ---*/
+.input-field{
+    position: relative;
+	margin: 15px 0px;
+}
+.input-field input{
+    width: 100%;
+    border-radius: 15px;
+    font-size: 1em;
+	font-weight: 200;
+	padding: 15px 14px;
+	border: 2px solid var(--ion-color-dark-monster);
+	background: transparent;
+	color: var(--ion-monster);
+	outline: none;
+}
+.input-field label{
+	position: absolute;
+	top:100%;
+	left: 15px;
+	transform: translateY(-40px);
+	
+	font-weight: 200;
+	color: var(--ion-color-dark-monster);
+	font-size: 1.10em;
+	pointer-events: none;
+	transition: .3s;
+}
+.input-field input:focus{
+	border: 2px solid var(--ion-monster);
+}
+.input-field input:focus ~ label,
+.input-field input:valid ~ label{
+	top: 27px;
+	font-size: 1.05em;
+	font-weight: 300;
+	padding: 0 5px;
+	background: var(--ion-background-color);
+	color: var(--ion-monster);
+}
+.input-field input:valid{
+	border-color: var(--ion-monster);
+}
+/*--- ---------------- ---*/
+.btn{
+    width: 100%; 
+    padding: 15px;
+    border-radius: 15px;
+    
+    font-weight: bold;
+    font-style: normal;
+    font-size: 1.25em;
+    margin: 15px 0px;
+}
+.btn-monster{
+    background-color: var(--ion-monster);
+    color: var(--ion-monster-contrast);
+}
+.btn-outline-monster{
+    background-color: transparent;
+    border:solid 1px var(--ion-monster);
+    color: var(--ion-monster);    
+}
+.btn-dark-monster{
+    background-color: var(--ion-color-dark-monster);
+    color: var(--ion-monster-contrast);
+}
+.btn-outline-dark-monster{
+    background-color: transparent;
+    border:solid 1px var(--ion-monster);
+    color: var(--ion-monster);    
+}
+/*--- ---------------- ---*/
+.btn-gatorade{
+    background-color: var(--ion-gatorade);
+    color: var(--ion-gatorade-contrast);
+}

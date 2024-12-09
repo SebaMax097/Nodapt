@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-item [routerLink]="['/clientes']">
+      <ion-icon name="arrow-back" slot="start"></ion-icon>
+      <ion-label>Volver</ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+  <h1 class="titulo">Registro de Cliente</h1>
+    <!-- Usuario -->
+    <div class="input-field">
+      <input type="text" required spellcheck="false">
+      <label>Nombres</label>
+    </div>
+    <!-- Usuario -->
+    <div class="input-field">
+      <input type="text" required spellcheck="false">
+      <label>Apellidos</label>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <button class="btn btn-monster">Agregar Cliente</button>
+  </ion-toolbar>
+</ion-footer>
+
