@@ -9,3 +9,21 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+  <div class="container">
+      <ion-list [inset]="true" lines="none">
+        <ion-item>
+          <button class="btn btn-monster" [routerLink]="['/ventas']">Venta</button>
+        </ion-item>
+        <ion-item>
+          <button class="btn btn-gatorade" [routerLink]="['/clientes']">Cliente</button>
+        </ion-item>
+        <ion-item>
+          <button class="btn btn-monster" [routerLink]="['/inventario']" >Inventario</button>
+        </ion-item>
+        <ion-item>
+          <button class="btn btn-gatorade">Historial ventas</button>
+        </ion-item>
+      </ion-list>
+    </div>
+</ion-content>
