@@ -5,13 +5,25 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
+import { BotonVolverComponent } from './boton-volver/boton-volver.component';
 
 @NgModule({
-  declarations: [AppComponent,SidebarMenuComponent],
+  declarations: [AppComponent,BotonVolverComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
-  exports: [SidebarMenuComponent],
+  exports: [BotonVolverComponent],
   bootstrap: [AppComponent],
 })
+
+// SIDEBARMENUCOMPONENT HABILITADO
+// @NgModule({
+//   declarations: [AppComponent,SidebarMenuComponent],
+//   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+//   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+//   exports: [SidebarMenuComponent],
+//   bootstrap: [AppComponent],
+// })
+
 export class AppModule {}
+
+

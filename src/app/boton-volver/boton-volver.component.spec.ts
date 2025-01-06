@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { SidebarMenuComponent } from './sidebar-menu.component';
+import { BotonVolverComponent } from './boton-volver.component';
 
-describe('SidebarMenuComponent', () => {
-  let component: SidebarMenuComponent;
-  let fixture: ComponentFixture<SidebarMenuComponent>;
+describe('BotonVolverComponent', () => {
+  let component: BotonVolverComponent;
+  let fixture: ComponentFixture<BotonVolverComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SidebarMenuComponent ],
+      declarations: [ BotonVolverComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SidebarMenuComponent);
+    fixture = TestBed.createComponent(BotonVolverComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
