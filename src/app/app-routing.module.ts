@@ -50,7 +50,11 @@ const routes: Routes = [
   {
     path: 'edit-cliente',
     loadChildren: () => import('./edit-cliente/edit-cliente.module').then( m => m.EditClientePageModule)
+  },  {
+    path: 'pagos',
+    loadChildren: () => import('./pagos/pagos.module').then( m => m.PagosPageModule)
   },
+
 
 ];
 

@@ -9,27 +9,31 @@
   <h1 class="titulo">Pago de Deudas</h1>
     <h3 class="">Detalles Cliente</h3>
     <!-- Usuario -->
-    <div class="input-field">
-      <input type="text"  spellcheck="false" value="Benjamin">
-      <label>Nombres</label>
-    </div>
-    <!-- Usuario -->
-    <div class="input-field">
-      <input type="text"  spellcheck="false" value="Gonzalez">
-      <label>Apellidos</label>
-    </div>
-    <h3 class="">Detalles Deudas</h3>
-    <!-- Usuario -->
-    <div class="input-field">
-      <input type="text"  spellcheck="false" style="border-color: red; color: red;" value="$100.000">
-      <label style="color: red;">Monto en deuda</label>
-    </div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Nombre Apellido</ion-card-title>
+        <ion-card-subtitle>Deuda: 0000</ion-card-subtitle>
+        <ion-card-subtitle>Monsters: 00</ion-card-subtitle>
+        <ion-card-subtitle>Gatorade: 00</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+    
     <h3>Ingrese monto a pagar</h3>
+    <br>
     <!-- Usuario -->
     <div class="input-field">
       <input type="text"  spellcheck="false">
-      <label>Monto a Pagar</label>
+      <label>Monto a pagar</label>
     </div>
+    <div class="input-field">
+      <input type="text"  spellcheck="false">
+      <label>Cantidad de producto a pagar</label>
+    </div>
+    <ion-list [inset]="true">
+      <ion-item>
+        <button class="btn btn-monster">Monster</button> <button class="btn btn-gatorade">Gatorade</button>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>
 <ion-footer>
