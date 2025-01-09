@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Menu -->
+    <ion-buttons slot="start">
+      <ion-menu-button color="success" menu="menuPrincipal"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      ADMIN
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="container">
+      <ion-list [inset]="true" lines="none">
+        <ion-item>
+          <button class="btn btn-admin-red" (click)="crearTablaClientes()">Crear Tablas CLIENTES/PRODUCTOS</button>
+        </ion-item>
+        <ion-item>
+          <button class="btn btn-admin-blue" (click)="crearTriggers()">Crear Triggers</button>
+        </ion-item>
+        <ion-item>
+          <button class="btn btn-admin-red" (click)="obtenerClientes()">Consulta Clientes</button>
+        </ion-item>
+        <ion-item>
+          <button class="btn btn-admin-blue" (click)="consultaTablas()">Consultar TABLAS</button>
+        </ion-item>
+        <ion-item>
+          <button class="btn btn-admin-red" (click)="eliminarTablas()">¡Eliminar Tablas!</button>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngIf="clientes && clientes.length > 0">
+      <h3>Lista de Clientes</h3>
+      <ul>
+        <li *ngFor="let cliente of clientes">
+          {{cliente.ID}} - {{ cliente.Nombre }} - Deuda: {{ cliente.Deuda }}
+        </li>
+      </ul>
+    </div>
+</ion-content>
+

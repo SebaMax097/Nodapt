@@ -103,6 +103,15 @@ ion-title{
     background-color: var(--ion-monster);
     color: var(--ion-monster-contrast);
 }
+.btn-admin-red{
+    background-color: #D32D41;
+    color: var(--ion-monster-contrast);
+}
+.btn-admin-blue{
+    background-color: #AC3E31;
+    color: var(--ion-monster-contrast);
+}
+
 .btn-outline-monster{
     background-color: transparent;
     border:solid 1px var(--ion-monster);

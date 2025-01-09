@@ -9,19 +9,19 @@
   <h1 class="titulo">Registro de Cliente</h1>
     <!-- Usuario -->
     <div class="input-field">
-      <input type="text" required spellcheck="false">
-      <label>Nombres</label>
+      <input type="text" [(ngModel)]="nombre" required spellcheck="false">
+      <label>Nombre</label>
     </div>
     <!-- Usuario -->
     <div class="input-field">
-      <input type="text" required spellcheck="false">
-      <label>Apellidos</label>
+      <input type="text" [(ngModel)]="apellido" required spellcheck="false">
+      <label>Apellido</label>
     </div>
   </div>
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <button class="btn btn-monster">Agregar Cliente</button>
+    <button class="btn btn-monster" (click)="agregarCliente()">Agregar Cliente</button>
   </ion-toolbar>
 </ion-footer>
 

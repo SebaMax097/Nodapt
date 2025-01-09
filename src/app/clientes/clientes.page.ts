@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-clientes',
   templateUrl: './clientes.page.html',
   styleUrls: ['./clientes.page.scss'],
 })
-export class ClientesPage implements OnInit {
+export class ClientesPage {
 
-  constructor() { }
+  public clientes: any[] = []
 
-  ngOnInit() {
+  constructor(private database: DatabaseService) { }
+
+  ionViewWillEnter(){
+    this.obtenerClientes()
+  }
+
+  async obtenerClientes(): Promise<void>{
+    this.clientes = await this.database.getClientes()
   }
 
 }

@@ -8,7 +8,9 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(private menuCtrl: MenuController) {}
+  constructor(
+    private menuCtrl: MenuController,
+  ) {}
   onClick(){
     this.menuCtrl.toggle();
   }
