@@ -2,10 +2,11 @@ import { Injectable, Query } from '@angular/core';
 import { CapacitorSQLite, SQLiteConnection } from '@capacitor-community/sqlite';
 import { DROP_TABLE_QUERIES } from './querys/drop-querys';
 import { CREATE_TABLE_QUERIES } from './querys/create-querys';
-import { CREATE_TRIGGERS } from './querys/trigger-query';
+import { TRIGGER_QUERYS } from './querys/trigger-query';
 import { CLIENTES_QUERYS } from './querys/clientes-querys';
 import { TRANSACCIONES_QUERY } from './querys/transacciones-query'; 
 import { PRODUCTOS_QUERY } from './querys/productos-query';
+import { CLIENTE_PRODUCTO_QUERYS } from './querys/cliente-producto-query';
 
 @Injectable({
   providedIn: 'root',
@@ -49,7 +50,6 @@ export class DatabaseService {
     }
     await this.db.run(PRODUCTOS_QUERY.insertMonster)
     await this.db.run(PRODUCTOS_QUERY.insertGatorade)
-    this.agregarCliente('Sebastian Ramirez');
     console.log('Productos agregados')
   }
 
@@ -58,14 +58,14 @@ export class DatabaseService {
       console.error('Base de datos no inicializada');
       return;
     }try{
-    await this.db.run(CREATE_TRIGGERS.triggerCrearClienteProducto)
-    await this.db.run(CREATE_TRIGGERS.triggerGenerarPago)
-    await this.db.run(CREATE_TRIGGERS.triggerGenerarVenta)
+    await this.db.run(TRIGGER_QUERYS.triggerCrearClienteProducto)
+    await this.db.run(TRIGGER_QUERYS.triggerGenerarPago)
+    await this.db.run(TRIGGER_QUERYS.triggerGenerarVenta)
   }catch (error) {
     console.error('Error al crear los triggers:', error);
   }
   }
-  // Elimina todas las TABLAS Creadas
+
   async eliminarTodo(): Promise<void> {
     if (!this.db){
       console.log('Base de datos no inicializada')
@@ -91,10 +91,9 @@ export class DatabaseService {
   }
 
   async agregarCliente(nombre: string): Promise<void> {
-    const query = `INSERT INTO CLIENTES (Nombre) VALUES (?)`;
     try {
-      await this.db.run(query, [nombre]);
-      console.log('Cliente agregado');
+      await this.db.run(CLIENTES_QUERYS.insertCliente, [nombre]);
+      console.log('Cliente ',nombre,' agregado');
 
     } catch (error) {
       console.error('Error al agregar el cliente:', error);
@@ -122,6 +121,12 @@ export class DatabaseService {
     }
   }
 
+  async getDetalleClienteProducto(idCliente: number): Promise<any>{
+    const result = await this.db.query(CLIENTE_PRODUCTO_QUERYS.getDetalleCliente, [idCliente])
+    console.log('detalleCliente: ', JSON.stringify(result))
+    return result.values
+  }
+
   async obtenerTablas(): Promise<void> {
     if (!this.db) {
       console.error('Base de datos no inicializada');
@@ -129,20 +134,31 @@ export class DatabaseService {
     }
   
     const queryTablas = `SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%';`;
-    const queryTrigger = `SELECT name FROM sqlite_master WHERE type = 'trigger';`;
-    const queryProductos = `SELECT * FROM PRODUCTOS;`;
 
     try {
       const tablas = await this.db.query(queryTablas);
-      console.log('Tablas en la base de datos:', JSON.stringify(tablas));
+      console.log('TABLAS: ', JSON.stringify(tablas));
 
-      const triggers = await this.db.query(queryTrigger)
-      console.log('Triggers en la base de datos:', JSON.stringify(triggers))
+      const triggers = await this.db.query(TRIGGER_QUERYS.getTriggers)
+      console.log('TRIGGERS: ', JSON.stringify(triggers))
 
-      const productos = await this.db.query(queryProductos)
-      console.log('Productos: '+JSON.stringify(productos))
+      const clientes = await this.db.query(CLIENTES_QUERYS.listaClientes)
+      console.log('CLIENTES: ', JSON.stringify(clientes))
 
-      return tablas.values;
+      const productos = await this.db.query(PRODUCTOS_QUERY.getProductos)
+      console.log('PRODUCTOS:: '+JSON.stringify(productos))
+
+      const cliente_producto = await this.db.query(CLIENTE_PRODUCTO_QUERYS.getClienteProducto)
+      console.log('CLIENTE_PRODUCTO: ', JSON.stringify(cliente_producto))
+
+      const ventas = await this.db.query(TRANSACCIONES_QUERY.getVentas)
+      console.log('VENTAS: ', JSON.stringify(ventas))
+
+      const pagos = await this.db.query(TRANSACCIONES_QUERY.getPagos)
+      console.log('PAGOS: ', JSON.stringify(pagos))
+
+      const transacciones = await this.db.query(TRANSACCIONES_QUERY.getTransacciones)
+      console.log('TRANSACCIONES', JSON.stringify(transacciones))
 
     } catch (error) {
       console.error('Error al obtener las tablas:', error);
@@ -160,7 +176,6 @@ export class DatabaseService {
       console.error('Error al agregar la venta:', error);
     }
   }
-
 
   async ultimasVentas(): Promise <any>{
 

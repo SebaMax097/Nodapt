@@ -7,17 +7,18 @@
 <ion-content>
   <div class="container">
   <h1 class="titulo">Detalles de Cliente</h1>
-    <!-- Usuario -->
+    <!-- Usuario -->    
     <ion-card *ngFor='let cliente of clientes'>
       <ion-card-header >
         <ion-card-title>{{cliente.Nombre}}</ion-card-title>
         <ion-card-subtitle>Deuda: {{cliente.Deuda}}</ion-card-subtitle>
-        <ion-card-subtitle>Monsters: 00</ion-card-subtitle>
-        <ion-card-subtitle>Gatorade: 00</ion-card-subtitle>
+        <div>
+          <ion-card-subtitle>Monsters: 00</ion-card-subtitle>
+          <ion-card-subtitle>Gatorade: 00</ion-card-subtitle>
+        </div>
       </ion-card-header>
     </ion-card>
 
-    
   </div>
 </ion-content>
 <ion-footer>

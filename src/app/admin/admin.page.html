@@ -13,13 +13,13 @@
   <div class="container">
       <ion-list [inset]="true" lines="none">
         <ion-item>
-          <button class="btn btn-admin-red" (click)="crearTablaClientes()">Crear Tablas CLIENTES/PRODUCTOS</button>
+          <button class="btn btn-admin-red" (click)="crearTablaClientes()">Crear Tablas</button>
         </ion-item>
         <ion-item>
           <button class="btn btn-admin-blue" (click)="crearTriggers()">Crear Triggers</button>
         </ion-item>
         <ion-item>
-          <button class="btn btn-admin-red" (click)="obtenerClientes()">Consulta Clientes</button>
+          <button class="btn btn-admin-red" (click)="insertarDatosFalsos()">Insertar Datos</button>
         </ion-item>
         <ion-item>
           <button class="btn btn-admin-blue" (click)="consultaTablas()">Consultar TABLAS</button>
@@ -34,7 +34,7 @@
           <button class="btn btn-admin-red" (click)="consultarVentas()">Consultar Ventas</button>
         </ion-item>
       </ion-list>
-    </div>
+    </div>as
     <div *ngIf="clientes && clientes.length > 0">
       <h3>Lista de Clientes</h3>
       <ul>

@@ -26,20 +26,23 @@ export class AdminPage implements OnInit {
     this.database.crearTriggers()
   }
 
-  async obtenerClientes(): Promise<void>{
-    console.log('Obtener Clientes')
-    this.clientes = await this.database.getListaClientes();
+  insertarDatosFalsos(){
+    this.database.agregarCliente('Sebastian Ramirez')
+    this.database.agregarCliente('Dylan Rada')
+
+    this.database.insertarVenta(1,1,1700,1);
+    this.database.insertarVenta(1,1,3400,1);
   }
 
   consultaTablas(){
-    console.log('Obtener Tablas')
+    console.log('Obtener Tablas y datos')
     this.database.obtenerTablas();
   }
   
   eliminarTablas(){
     this.database.eliminarTodo();
   }
-  
+
   insertarVenta() {
     const idCliente = 1;   // Cliente de prueba
     const idProducto = 1;  // Producto de prueba

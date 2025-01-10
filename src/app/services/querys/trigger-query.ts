@@ -1,4 +1,4 @@
-export const CREATE_TRIGGERS = {
+export const TRIGGER_QUERYS = {
   triggerCrearClienteProducto: `
     CREATE TRIGGER CREAR_CLIENTE_PRODUCTO
     AFTER INSERT ON CLIENTES
@@ -51,4 +51,5 @@ export const CREATE_TRIGGERS = {
         VALUES (NEW.ID_Cliente, NEW.ID_Producto, 2, NEW.Monto, NEW.cantidad, NEW.fecha);
     END;
   `,
+  getTriggers:`SELECT name FROM sqlite_master WHERE type = 'trigger';`
 };

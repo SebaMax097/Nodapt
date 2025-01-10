@@ -14,4 +14,8 @@ export const TRANSACCIONES_QUERY = {
         ORDER BY VEN.FECHA DESC;`,
     insertVenta: `INSERT INTO VENTA (ID_Cliente, ID_Producto, Precio, cantidad) VALUES (?,?,?,?);`,
 
+    getPagos: `SELECT * FROM PAGOS;`,
+
+    getTransacciones: `SELECT * FROM TRANSACCIONES;`,
+
 }
