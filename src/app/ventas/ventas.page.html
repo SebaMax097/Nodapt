@@ -14,39 +14,12 @@
   <h1 class="sub-titulo">Selecciona un cliente...</h1>
     <ion-list [inset]="true">
 
-      <ion-card [routerLink]="['/add-venta']" >
+      <ion-card *ngFor='let cliente of clientes'  (click)="seleccionarCliente(cliente.ID)" >
         <ion-card-header>
-          <ion-card-title>Sebastian Ramirez</ion-card-title>
-          <ion-card-subtitle>Deuda: 1500</ion-card-subtitle>
+          <ion-card-title>{{cliente.Nombre}}</ion-card-title>
+          <ion-card-subtitle>Deuda: {{cliente.Deuda}}</ion-card-subtitle>
         </ion-card-header>
       </ion-card>
-      <ion-card [routerLink]="['/add-venta']" >
-        <ion-card-header>
-          <ion-card-title> Luis Hernandez</ion-card-title>
-          <ion-card-subtitle>Deuda: 5000</ion-card-subtitle>
-        </ion-card-header>
-      </ion-card>
-      <ion-card [routerLink]="['/add-venta']" >
-        <ion-card-header>
-          <ion-card-title> Juan Pablo</ion-card-title>
-          <ion-card-subtitle>Deuda: 0</ion-card-subtitle>
-        </ion-card-header>
-      </ion-card>
-
-      <!-- <ion-item [routerLink]="['/add-venta']">
-        <ion-icon name="cart-outline" slot="end"></ion-icon>
-        <ion-label>Benjamin Gonzalez</ion-label>
-        <ion-icon name="play" slot="end"></ion-icon>
-      </ion-item>
-      <ion-item [routerLink]="['/add-venta']">
-        <ion-label>Sebastian Ramirez</ion-label>
-        <ion-icon name="play" slot="end"></ion-icon>
-      </ion-item>
-      <ion-item [routerLink]="['/add-venta']">
-        <ion-label>Samuel Alarcon</ion-label>
-        <ion-icon name="play" slot="end"></ion-icon>
-      </ion-item> -->
-
 
 
     </ion-list>

@@ -28,7 +28,7 @@ export class AdminPage implements OnInit {
 
   async obtenerClientes(): Promise<void>{
     console.log('Obtener Clientes')
-    this.clientes = await this.database.getClientes();
+    this.clientes = await this.database.getListaClientes();
   }
 
   consultaTablas(){
@@ -38,6 +38,19 @@ export class AdminPage implements OnInit {
   
   eliminarTablas(){
     this.database.eliminarTodo();
+  }
+  
+  insertarVenta() {
+    const idCliente = 1;   // Cliente de prueba
+    const idProducto = 1;  // Producto de prueba
+    const precio = 1700;   // Precio de prueba
+    const cantidad = 1;    // Cantidad de prueba
+  
+    console.log('Enviando datos:', idCliente, idProducto, precio, cantidad);
+    this.database.insertarVenta(idCliente, idProducto, precio, cantidad);
+  }
+  consultarVentas(){
+    this.database.ultimasVentas();
   }
 
 

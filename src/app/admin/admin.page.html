@@ -27,6 +27,12 @@
         <ion-item>
           <button class="btn btn-admin-red" (click)="eliminarTablas()">¡Eliminar Tablas!</button>
         </ion-item>
+        <ion-item>
+          <button class="btn btn-admin-blue" (click)="insertarVenta()">Insertar Venta</button>
+        </ion-item>
+        <ion-item>
+          <button class="btn btn-admin-red" (click)="consultarVentas()">Consultar Ventas</button>
+        </ion-item>
       </ion-list>
     </div>
     <div *ngIf="clientes && clientes.length > 0">

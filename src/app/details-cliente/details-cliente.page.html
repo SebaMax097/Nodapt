@@ -8,28 +8,16 @@
   <div class="container">
   <h1 class="titulo">Detalles de Cliente</h1>
     <!-- Usuario -->
-    <div class="input-field">
-      <input type="text"  spellcheck="false" value="Benjamin">
-      <label>Nombres</label>
-    </div>
-    <!-- Usuario -->
-    <div class="input-field">
-      <input type="text"  spellcheck="false" value="Gonzalez">
-      <label>Apellidos</label>
-    </div>
+    <ion-card *ngFor='let cliente of clientes'>
+      <ion-card-header >
+        <ion-card-title>{{cliente.Nombre}}</ion-card-title>
+        <ion-card-subtitle>Deuda: {{cliente.Deuda}}</ion-card-subtitle>
+        <ion-card-subtitle>Monsters: 00</ion-card-subtitle>
+        <ion-card-subtitle>Gatorade: 00</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
 
-    <div class="input-field">
-      <input type="number"  spellcheck="false" value="3">
-      <label>Cantidad de Monster</label>
-    </div>
-    <div class="input-field">
-      <input type="number"  spellcheck="false" value="5">
-      <label>Cantidad de Gatorade</label>
-    </div>
-    <div class="input-field">
-      <input type="text"  spellcheck="false" value="$100.000" style="border-color: red; color: red;">
-      <label style="color: red;">Monto en deuda</label>
-    </div>
+    
   </div>
 </ion-content>
 <ion-footer>
@@ -38,3 +26,24 @@
   </ion-toolbar>
 </ion-footer>
 
+<!-- <div class="input-field">
+  <input type="text"  spellcheck="false" value="Benjamin">
+  <label>Nombres</label>
+</div>
+<div class="input-field">
+  <input type="text"  spellcheck="false" value="Gonzalez">
+  <label>Apellidos</label>
+</div>
+
+<div class="input-field">
+  <input type="number"  spellcheck="false" value="3">
+  <label>Cantidad de Monster</label>
+</div>
+<div class="input-field">
+  <input type="number"  spellcheck="false" value="5">
+  <label>Cantidad de Gatorade</label>
+</div>
+<div class="input-field">
+  <input type="text"  spellcheck="false" value="$100.000" style="border-color: red; color: red;">
+  <label style="color: red;">Monto en deuda</label>
+</div> -->

@@ -13,13 +13,15 @@
   <h1 class="titulo">Listado Clientes</h1>
   <h1 class="sub-titulo">Visualiza el detalle cliente...</h1>
     <ion-list [inset]="true">
-      <ion-card *ngFor="let cliente of clientes" [routerLink]="['/details-cliente']">
+
+      <ion-card *ngFor="let cliente of clientes" (click)="verDetalleCliente(cliente.ID)">
         <ion-card-header>
           <ion-card-title>{{cliente.Nombre}}</ion-card-title>
           <ion-card-subtitle>ID: {{cliente.ID}}</ion-card-subtitle>
           <ion-card-subtitle>Deuda: {{cliente.Deuda}}</ion-card-subtitle>
         </ion-card-header>
       </ion-card>
+
     </ion-list>
   </div>
 </ion-content>

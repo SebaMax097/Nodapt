@@ -8,27 +8,36 @@
   <div class="container">
   <h1 class="titulo">Registro de Venta</h1>
   <h1 class="sub-titulo">Seleccionar producto, cantidad y precio</h1>
+
+  <ion-card *ngFor="let cliente of clientes">
+    <ion-card-header>
+      <ion-card-title>{{cliente.Nombre}}</ion-card-title>
+      <ion-card-subtitle>ID: {{cliente.ID}}</ion-card-subtitle>
+      <ion-card-subtitle>Deuda: {{cliente.Deuda}}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
     <ion-list [inset]="true">
       <ion-item>
-        <button class="btn btn-monster">Monster</button> <button class="btn btn-gatorade">Gatorade</button>
+        <button class="btn btn-monster" [class.btn-monster-selected]="idProducto === 1" (click)='productoSeleccionado(1)'>Monster</button>
+        <button class="btn btn-gatorade" [class.btn-monster-selected]="idProducto === 2" (click)='productoSeleccionado(2)'>Gatorade</button>
       </ion-item>
     </ion-list>
   <!-- Usuario -->
       <div class="input-field">
-        <input type="number" required spellcheck="false">
+        <input type="number" [(ngModel)]="cantidad" required spellcheck="false">
         <label>Cantidad</label>
       </div>
       <!-- Usuario -->
     <div class="input-field">
-    <input type="number" required spellcheck="false">
+    <input type="number" [(ngModel)]="precio" required spellcheck="false">
     <label>Precio</label>
     </div>
   </div>
-  
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
-    <button class="btn btn-monster">Confirmar venta</button>
+    <button class="btn btn-monster" (click)="generarVenta()" >Confirmar venta</button>
   </ion-toolbar>
 </ion-footer>

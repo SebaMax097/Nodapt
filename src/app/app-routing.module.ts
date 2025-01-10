@@ -28,7 +28,7 @@ const routes: Routes = [
     loadChildren: () => import('./inventario/inventario.module').then( m => m.InventarioPageModule)
   },
   {
-    path: 'add-venta',
+    path: 'add-venta/:idCliente',
     loadChildren: () => import('./add-venta/add-venta.module').then( m => m.AddVentaPageModule)
   },
   {
@@ -36,7 +36,7 @@ const routes: Routes = [
     loadChildren: () => import('./add-cliente/add-cliente.module').then( m => m.AddClientePageModule)
   },
   {
-    path: 'details-cliente',
+    path: 'details-cliente/:idCliente',
     loadChildren: () => import('./details-cliente/details-cliente.module').then( m => m.DetailsClientePageModule)
   },
   {
@@ -50,7 +50,8 @@ const routes: Routes = [
   {
     path: 'edit-cliente',
     loadChildren: () => import('./edit-cliente/edit-cliente.module').then( m => m.EditClientePageModule)
-  },  {
+  },
+  {
     path: 'pagos',
     loadChildren: () => import('./pagos/pagos.module').then( m => m.PagosPageModule)
   },
