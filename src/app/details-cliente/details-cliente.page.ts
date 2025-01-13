@@ -10,7 +10,8 @@ import { DatabaseService } from '../services/database.service';
 
 export class DetailsClientePage{
   idCliente: number = 0;
-  public clientes: any[] = [];
+  public clientesProductos: any[] = [];
+  public transacciones: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -34,15 +35,20 @@ export class DetailsClientePage{
   }
 
   ionViewWillEnter(){
-    this.getDetalleCliente();
+    this.getClienteProducto();
+    this.getTransacciones();
     console.log('Page iniciada')
   }
 
-  async getDetalleCliente(): Promise<any>{
-    this.clientes = await this.database.getCliente(this.idCliente)
-    console.log('ID Cliente: '+this.idCliente)
-    console.log('this.clientes: '+JSON.stringify(this.clientes))
+
+  async getClienteProducto(): Promise<any>{
+    this.clientesProductos = await this.database.getDetalleClienteProducto(this.idCliente);
   }
 
-}
+  async getTransacciones(): Promise<any>{
+    this.transacciones = await this.database.ultimasVentasCliente(this.idCliente);
+
+  }
+  
+  }
 

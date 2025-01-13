@@ -8,43 +8,66 @@
   <div class="container">
   <h1 class="titulo">Detalles de Cliente</h1>
     <!-- Usuario -->    
-    <ion-card *ngFor='let cliente of clientes'>
+    <ion-card *ngFor='let cliente of clientesProductos'>
       <ion-card-header >
-        <ion-card-title>{{cliente.Nombre}}</ion-card-title>
+        <ion-card-title>{{cliente.Cliente}}</ion-card-title>
         <ion-card-subtitle>Deuda: {{cliente.Deuda}}</ion-card-subtitle>
         <div>
-          <ion-card-subtitle>Monsters: 00</ion-card-subtitle>
-          <ion-card-subtitle>Gatorade: 00</ion-card-subtitle>
+          <ion-card-subtitle>Monsters: {{cliente.prestamoMonster}}</ion-card-subtitle>
+          <ion-card-subtitle>Gatorade: {{cliente.prestamoGatorade}}</ion-card-subtitle>
         </div>
       </ion-card-header>
     </ion-card>
+    <h1 class="sub-titulo">Ultimas transacciones</h1>
+    <b></b>
+
+
+    <ion-card *ngFor='let transaccion of transacciones' [ngClass]="{'transaccion-venta': transaccion.Tipo === 'VENTA', 'transaccion-pago': transaccion.Tipo === 'PAGO'}">
+      <ion-card-header>
+        <ion-card-title>{{transaccion.Tipo}}</ion-card-title>
+        <ion-card-subtitle>{{transaccion.Fecha}}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Cantidad</ion-col>
+            <ion-col>Producto</ion-col>
+            <ion-col>Precio</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>{{transaccion.Cantidad}}</ion-col>
+            <ion-col>{{transaccion.Producto}}</ion-col>
+            <ion-col>{{transaccion.Valor}}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+    
+    <!-- <ion-card class="transaccion-pago">
+      <ion-card-header>
+        <ion-card-title>Pago</ion-card-title>
+        <ion-card-subtitle>11/01/2025</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Cantidad</ion-col>
+            <ion-col>Producto</ion-col>
+            <ion-col>Precio</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>1</ion-col>
+            <ion-col>Monster</ion-col>
+            <ion-col>1700</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card> -->
 
   </div>
 </ion-content>
 <ion-footer>
-  <ion-toolbar>
-    <button [routerLink]="['/add-pago']" class="btn btn-monster">Pagar Deuda</button>
-  </ion-toolbar>
 </ion-footer>
 
-<!-- <div class="input-field">
-  <input type="text"  spellcheck="false" value="Benjamin">
-  <label>Nombres</label>
-</div>
-<div class="input-field">
-  <input type="text"  spellcheck="false" value="Gonzalez">
-  <label>Apellidos</label>
-</div>
-
-<div class="input-field">
-  <input type="number"  spellcheck="false" value="3">
-  <label>Cantidad de Monster</label>
-</div>
-<div class="input-field">
-  <input type="number"  spellcheck="false" value="5">
-  <label>Cantidad de Gatorade</label>
-</div>
-<div class="input-field">
-  <input type="text"  spellcheck="false" value="$100.000" style="border-color: red; color: red;">
-  <label style="color: red;">Monto en deuda</label>
-</div> -->

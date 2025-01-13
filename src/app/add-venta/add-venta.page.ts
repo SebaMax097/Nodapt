@@ -11,8 +11,8 @@ export class AddVentaPage {
   clientes: any[] = []
   idCliente: number = 0;
   idProducto: number = 0;
-  cantidad: number = 0;
-  precio: number = 0;
+  cantidad!: number | undefined;
+  precio!: number | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,11 +36,11 @@ export class AddVentaPage {
   }
 
   ionViewWillEnter(){
-    this.getCliente(this.idCliente);
+    this.getClienteProducto(this.idCliente);
   }
 
-  async getCliente(idCliente: number): Promise<any>{
-    this.clientes = await this.database.getCliente(idCliente)
+  async getClienteProducto(idCliente: number): Promise<any>{
+    this.clientes = await this.database.getDetalleClienteProducto(idCliente)
   }
 
   productoSeleccionado(idProducto: number){
@@ -61,23 +61,28 @@ export class AddVentaPage {
       return;
     }
 
-  if (this.cantidad <= 0 || !Number.isInteger(this.cantidad)) {
-    console.error('La cantidad debe ser un número entero mayor a 0');
-    alert('La cantidad debe ser mayor a 0');
-    return;
+
+    if(this.precio){
+      if(this.cantidad){
+        if (this.cantidad <= 0 || !Number.isInteger(this.cantidad)) {
+          console.error('La cantidad debe ser un número entero mayor a 0');
+          alert('La cantidad debe ser mayor a 0');
+          return;
+        }
+      
+        if (this.precio <= 0 || !Number.isInteger(this.precio)) {
+          console.error('El precio debe ser un número entero mayor a 0');
+          alert('El precio debe ser mayor a 0');
+          return;
+        } 
+      
+        this.database.insertarVenta(this.clientes[0].ID, this.idProducto, this.precio, this.cantidad)
+        alert('Venta generada')
+            
+        }
+      }
+    }
+  
+    
   }
 
-  if (this.precio <= 0 || !Number.isInteger(this.precio)) {
-    console.error('El precio debe ser un número entero mayor a 0');
-    alert('El precio debe ser mayor a 0');
-    return;
-  } 
-
-    console.log('Cantidad producto: '+this.cantidad)
-    console.log('Precio total: '+this.precio)
-    console.log('Query: '+this.clientes[0].ID+','+this.idProducto+','+this.cantidad+','+this.precio )
-  }
-
-
-
-}

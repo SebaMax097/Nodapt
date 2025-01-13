@@ -28,20 +28,9 @@
           <button class="btn btn-admin-red" (click)="eliminarTablas()">¡Eliminar Tablas!</button>
         </ion-item>
         <ion-item>
-          <button class="btn btn-admin-blue" (click)="insertarVenta()">Insertar Venta</button>
-        </ion-item>
-        <ion-item>
-          <button class="btn btn-admin-red" (click)="consultarVentas()">Consultar Ventas</button>
+          <button class="btn btn-admin-blue" (click)="consultarTransaccion()">Consultar Transacciones</button>
         </ion-item>
       </ion-list>
-    </div>as
-    <div *ngIf="clientes && clientes.length > 0">
-      <h3>Lista de Clientes</h3>
-      <ul>
-        <li *ngFor="let cliente of clientes">
-          {{cliente.ID}} - {{ cliente.Nombre }} - Deuda: {{ cliente.Deuda }}
-        </li>
-      </ul>
     </div>
 </ion-content>
 

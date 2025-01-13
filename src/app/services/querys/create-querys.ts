@@ -34,7 +34,7 @@ export const CREATE_TABLE_QUERIES = {
         "ID_Cliente" INTEGER NOT NULL,
         "Precio" INTEGER NOT NULL,
         "Cantidad" INTEGER NOT NULL,
-        "Fecha" TEXT NOT NULL DEFAULT (datetime('now')),
+        "Fecha" TEXT NOT NULL DEFAULT (datetime('now','localtime')),
         FOREIGN KEY("ID_Cliente") REFERENCES "CLIENTES"("ID"),
         FOREIGN KEY("ID_Producto") REFERENCES "PRODUCTOS"("ID")
       );
@@ -47,7 +47,7 @@ export const CREATE_TABLE_QUERIES = {
         "ID_Producto" INTEGER NOT NULL,
         "Monto" INTEGER NOT NULL,
         "Cantidad" INTEGER NOT NULL,
-        "Fecha" TEXT NOT NULL DEFAULT (datetime('now')),
+        "Fecha" TEXT NOT NULL DEFAULT (datetime('now','localtime')),
         FOREIGN KEY("ID_Cliente") REFERENCES "CLIENTES"("ID"),
         FOREIGN KEY("ID_Producto") REFERENCES "PRODUCTOS"("ID")
       );

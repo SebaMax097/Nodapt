@@ -31,7 +31,10 @@ export class AdminPage implements OnInit {
     this.database.agregarCliente('Dylan Rada')
 
     this.database.insertarVenta(1,1,1700,1);
-    this.database.insertarVenta(1,1,3400,1);
+    this.database.insertarVenta(1,1,3400,2);
+  
+    this.database.insertarPago(1,1,1700,1)
+
   }
 
   consultaTablas(){
@@ -43,17 +46,12 @@ export class AdminPage implements OnInit {
     this.database.eliminarTodo();
   }
 
-  insertarVenta() {
-    const idCliente = 1;   // Cliente de prueba
-    const idProducto = 1;  // Producto de prueba
-    const precio = 1700;   // Precio de prueba
-    const cantidad = 1;    // Cantidad de prueba
-  
-    console.log('Enviando datos:', idCliente, idProducto, precio, cantidad);
-    this.database.insertarVenta(idCliente, idProducto, precio, cantidad);
-  }
   consultarVentas(){
     this.database.ultimasVentas();
+  }
+
+  consultarTransaccion(){
+    this.database.ultimasVentasCliente(1);
   }
 
 
