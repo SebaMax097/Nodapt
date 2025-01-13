@@ -15,14 +15,6 @@ import { BotonVolverComponent } from './boton-volver/boton-volver.component';
   bootstrap: [AppComponent],
 })
 
-// SIDEBARMENUCOMPONENT HABILITADO
-// @NgModule({
-//   declarations: [AppComponent,SidebarMenuComponent],
-//   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-//   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
-//   exports: [SidebarMenuComponent],
-//   bootstrap: [AppComponent],
-// })
 
 export class AppModule {}
 
