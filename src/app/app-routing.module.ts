@@ -40,7 +40,7 @@ const routes: Routes = [
     loadChildren: () => import('./details-cliente/details-cliente.module').then( m => m.DetailsClientePageModule)
   },
   {
-    path: 'add-pago',
+    path: 'add-pago/:idCliente',
     loadChildren: () => import('./add-pago/add-pago.module').then( m => m.AddPagoPageModule)
   },
   {

@@ -9,12 +9,12 @@
   <h1 class="titulo">Pago de Deudas</h1>
     <h3 class="">Detalles Cliente</h3>
     <!-- Usuario -->
-    <ion-card>
+    <ion-card *ngFor="let cliente of clientesProductos">
       <ion-card-header>
-        <ion-card-title>Nombre Apellido</ion-card-title>
-        <ion-card-subtitle>Deuda: 0000</ion-card-subtitle>
-        <ion-card-subtitle>Monsters: 00</ion-card-subtitle>
-        <ion-card-subtitle>Gatorade: 00</ion-card-subtitle>
+        <ion-card-title>{{cliente.Cliente}}</ion-card-title>
+        <ion-card-subtitle>Deuda: {{cliente.Deuda}}</ion-card-subtitle>
+        <ion-card-subtitle>Monsters: {{cliente.prestamoMonster}}</ion-card-subtitle>
+        <ion-card-subtitle>Gatorade: {{cliente.prestamoGatorade}}</ion-card-subtitle>
       </ion-card-header>
     </ion-card>
     
@@ -22,23 +22,24 @@
     <br>
     <!-- Usuario -->
     <div class="input-field">
-      <input type="text"  spellcheck="false">
-      <label>Monto a pagar</label>
+      <input type="number" [(ngModel)]="cantidad" spellcheck="false">
+      <label>Cantidad de producto a pagar</label>
     </div>
     <div class="input-field">
-      <input type="text"  spellcheck="false">
-      <label>Cantidad de producto a pagar</label>
+      <input type="number" [(ngModel)]="precio" spellcheck="false">
+      <label>Monto a pagar</label>
     </div>
     <ion-list [inset]="true">
       <ion-item>
-        <button class="btn btn-monster">Monster</button> <button class="btn btn-gatorade">Gatorade</button>
+        <button class="btn btn-monster" [class.btn-monster-selected]="idProducto === 1" (click)='productoSeleccionado(1)' >Monster</button>
+        <button class="btn btn-gatorade" [class.btn-monster-selected]="idProducto === 2" (click)='productoSeleccionado(2)'>Gatorade</button>
       </ion-item>
     </ion-list>
   </div>
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <button class="btn btn-monster">Pagar Deuda</button>
+    <button class="btn btn-monster" (click)='generarPago()'>Confirmar Pago</button>
   </ion-toolbar>
 </ion-footer>
 
