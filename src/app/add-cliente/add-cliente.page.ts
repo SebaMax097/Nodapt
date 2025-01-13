@@ -26,7 +26,6 @@ export class AddClientePage implements OnInit {
     if(this.validarDatos()==true){
       this.database.agregarCliente(this.cliente)
       alert('Cliente Agregado: '+this.cliente)
-      this.router.navigate(['/clientes'])
     }else{
       alert('Error')
     }

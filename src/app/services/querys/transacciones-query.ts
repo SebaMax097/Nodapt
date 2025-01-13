@@ -1,6 +1,7 @@
 export const TRANSACCIONES_QUERY = {
 
     getVentas: `SELECT * FROM VENTA;`,
+
     getUltimasVentas: `
         SELECT
         VEN.ID AS ID,
@@ -13,6 +14,8 @@ export const TRANSACCIONES_QUERY = {
         JOIN CLIENTES CLI ON (CLI.ID = VEN.ID_Cliente)
         JOIN PRODUCTOS PR ON (PR.ID = VEN.ID_Producto)
         ORDER BY VEN.FECHA DESC;`,
+
+        
     insertVenta: `INSERT INTO VENTA (ID_Cliente, ID_Producto, Precio, cantidad) VALUES (?,?,?,?);`,
 
 
