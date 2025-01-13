@@ -13,13 +13,9 @@
   <h1 class="titulo">Inventario</h1>
   <h1 class="sub-titulo">Visualiza tu stock de productos...</h1>
     <ion-list [inset]="true">
-      <ion-item >
-        <ion-label>Monster</ion-label>
-        <ion-label>35</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Gatorade</ion-label>
-        <ion-label>15</ion-label>
+      <ion-item *ngFor="let producto of productos">
+        <ion-label>{{producto.Nombre}}</ion-label>
+        <ion-label>{{producto.Stock}}</ion-label>
       </ion-item>
     </ion-list>
   </div>

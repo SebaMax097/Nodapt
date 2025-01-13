@@ -244,4 +244,30 @@ export class DatabaseService {
     return result.values;
 
   }
+
+  async getProductos(): Promise<any>{
+    const result = await this.db.query(PRODUCTOS_QUERY.getProductos)
+    return result.values;
+  }
+
+  async getStockProducto(idProducto: number): Promise<any>{
+  try {
+    const result = await this.db.query(PRODUCTOS_QUERY.getStockProducto,[idProducto]);
+    console.log('result.values[0]: ', result.values[0].Stock)
+    return result.values[0].Stock
+
+} catch (error) {
+    console.error('Error en la consulta:', error);
+}
+  }
+
+  async agregarProducto(idProducto: number, nuevoStock: number): Promise<any>{
+    let stockAntiguo = await this.getStockProducto(idProducto)
+    let stockActualizado = stockAntiguo + nuevoStock
+    console.log('StockAntiguo: ',stockAntiguo)
+    console.log('Stock a agregar: ',nuevoStock)
+    console.log('Stock Actualizado: ',stockActualizado)
+    await this.db.run(PRODUCTOS_QUERY.insertStock,[stockActualizado,idProducto])
+  }
+  
 }

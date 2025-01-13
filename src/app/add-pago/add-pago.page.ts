@@ -65,12 +65,12 @@ export class AddPagoPage {
     console.log()
     if(this.precio){
       if(this.cantidad){
-        if (this.cantidad <= 0 || !Number.isInteger(this.cantidad)) {
+        if (!Number.isInteger(this.cantidad)) {
           alert('La cantidad debe ser mayor a 0');
           return;
         }
       
-        if (this.precio <= 0 || !Number.isInteger(this.precio)) {
+        if (!Number.isInteger(this.precio)) {
           console.error('El precio debe ser un número entero mayor a 0');
           alert('El precio debe ser mayor a 0');
           return;

@@ -54,5 +54,10 @@ export class AdminPage implements OnInit {
     this.database.ultimasVentasCliente(1);
   }
 
+  async getInventario(){
+    this.database.getStockProducto(1);
+    console.log('ADMIN: ', await this.database.getStockProducto(1))
+  }
+
 
 }
