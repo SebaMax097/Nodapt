@@ -1,30 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Cliente</ion-title>
+    <ion-title>Historial de venta-pagos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">historial</ion-title>
+    </ion-toolbar>
+  </ion-header>
   <div class="container">
-  <h1 class="titulo">Detalles de Cliente</h1>
-    <!-- Usuario -->    
-    <ion-card *ngFor='let cliente of clientesProductos'>
-      <ion-card-header >
-        <ion-card-title>{{cliente.Cliente}}</ion-card-title>
-        <ion-card-subtitle>Deuda: {{cliente.Deuda}}</ion-card-subtitle>
-        <div>
-          <ion-card-subtitle>Monsters: {{cliente.prestamoMonster}}</ion-card-subtitle>
-          <ion-card-subtitle>Gatorade: {{cliente.prestamoGatorade}}</ion-card-subtitle>
-        </div>
-      </ion-card-header>
-    </ion-card>
-    <h1 class="sub-titulo">Ultimas transacciones</h1>
-    <b></b>
-
-
+    <h1 class="titulo">Detalle transacciones</h1>
+    <h1 class="sub-titulo">Se visualizan las ultimas ventas y pagos producidos</h1>
+    
     <ion-card *ngFor='let transaccion of transacciones' [ngClass]="{'transaccion-venta': transaccion.Tipo === 'VENTA', 'transaccion-pago': transaccion.Tipo === 'PAGO'}">
       <ion-card-header>
-        <ion-card-title>{{transaccion.Tipo}}</ion-card-title>
+        <ion-card-title>{{transaccion.Tipo}} - {{transaccion.Cliente}}</ion-card-title>
         <ion-card-subtitle>{{transaccion.Fecha}}</ion-card-subtitle>
       </ion-card-header>
     
@@ -45,6 +37,3 @@
     </ion-card>
   </div>
 </ion-content>
-<ion-footer>
-</ion-footer>
-

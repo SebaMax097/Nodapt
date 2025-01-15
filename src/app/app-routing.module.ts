@@ -63,6 +63,15 @@ const routes: Routes = [
     path: 'resumen',
     loadChildren: () => import('./resumen/resumen.module').then( m => m.ResumenPageModule)
   },
+  {
+    path: 'historial',
+    loadChildren: () => import('./historial/historial.module').then( m => m.HistorialPageModule)
+  },  {
+    path: 'clientes-deuda',
+    loadChildren: () => import('./clientes-deuda/clientes-deuda.module').then( m => m.ClientesDeudaPageModule)
+  },
+
+
 
 
 

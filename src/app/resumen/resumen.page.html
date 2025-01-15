@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>resumen</ion-title>
+    <ion-title>Resumen Ventas</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,4 +10,26 @@
       <ion-title size="large">resumen</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div class="container">
+  <ion-card>
+    <ion-list lines="none">
+
+      <ion-item>
+        <ion-icon name="cash-outline"></ion-icon>
+        <ion-label>Total vendido: ${{datos.totalVentas}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="cash-outline"></ion-icon>
+        <ion-label>Total pagado: ${{datos.totalPagos}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="card-outline"></ion-icon>
+        <ion-label>Deuda pendiente: ${{datos.totalDeuda}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <button class="btn btn-monster" [routerLink]="['/clientes-deuda']"><ion-icon name="people"></ion-icon> Cliente</button>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</div>
 </ion-content>

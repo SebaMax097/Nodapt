@@ -13,22 +13,25 @@
   <div class="container">
       <ion-list [inset]="true" lines="none">
         <ion-item>
-          <button class="btn btn-monster" [routerLink]="['/ventas']">Venta</button>
+          <button class="btn btn-monster" [routerLink]="['/ventas']"><ion-icon name="cash-outline"></ion-icon> Venta</button>
         </ion-item>
         <ion-item>
-          <button class="btn btn-monster" [routerLink]="['/pagos']">Pago</button>
+          <button class="btn btn-monster" [routerLink]="['/pagos']"><ion-icon name="cash-outline"></ion-icon> Pago</button>
         </ion-item>
         <ion-item>
-          <button class="btn btn-monster" [routerLink]="['/clientes']">Cliente</button>
+          <button class="btn btn-monster" [routerLink]="['/clientes']"><ion-icon name="people"></ion-icon> Cliente</button>
         </ion-item>
         <ion-item>
-          <button class="btn btn-monster" [routerLink]="['/inventario']">Inventario</button>
+          <button class="btn btn-monster" [routerLink]="['/inventario']"><ion-icon name="logo-dropbox"></ion-icon> Inventario</button>
         </ion-item>
-        <!-- <ion-item>
-          <button class="btn btn-monster">Historial ventas</button>
-        </ion-item> -->
         <ion-item>
-          <button class="btn btn-gatorade" [routerLink]="['/admin']">ADMIN</button>
+          <button class="btn btn-monster" [routerLink]="['/historial']"><ion-icon name="swap-horizontal"></ion-icon> Historial Transacciones</button>
+        </ion-item>
+        <ion-item>
+          <button class="btn btn-monster" [routerLink]="['/resumen']" ><ion-icon name="reader"></ion-icon> Resumen</button>
+        </ion-item>
+        <ion-item>
+          <button class="btn btn-gatorade" [routerLink]="['/admin']"><ion-icon name="logo-android"></ion-icon> ADMIN</button>
         </ion-item>
       </ion-list>
     </div>

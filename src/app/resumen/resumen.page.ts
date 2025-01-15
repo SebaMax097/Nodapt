@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-resumen',
   templateUrl: './resumen.page.html',
   styleUrls: ['./resumen.page.scss'],
 })
-export class ResumenPage implements OnInit {
+export class ResumenPage  {
 
-  constructor() { }
+  datos: any = [];
+  
+  constructor(private database: DatabaseService) { }
 
-  ngOnInit() {
+  ionViewWillEnter() {
+    this.getResumen();
   }
 
+  async getResumen(){
+    this.datos = await this.database.getResumen();
+  }
 }

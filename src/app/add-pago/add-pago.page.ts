@@ -70,7 +70,7 @@ export class AddPagoPage {
           return;
         }
       
-        if (!Number.isInteger(this.precio)) {
+        if (!Number.isInteger(this.precio) || this.cantidad > this.precio) {
           console.error('El precio debe ser un número entero mayor a 0');
           alert('El precio debe ser mayor a 0');
           return;

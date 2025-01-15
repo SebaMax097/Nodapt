@@ -7,6 +7,7 @@ import { CLIENTES_QUERYS } from './querys/clientes-querys';
 import { TRANSACCIONES_QUERY } from './querys/transacciones-query'; 
 import { PRODUCTOS_QUERY } from './querys/productos-query';
 import { CLIENTE_PRODUCTO_QUERYS } from './querys/cliente-producto-query';
+import { RESUMEN_QUERYS } from './querys/resumen-querys';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +17,7 @@ export class DatabaseService {
   private db: any;
 
   constructor() {}
+
 
   // Inicializa la base de datos
   async inicializarBaseDeDatos(): Promise<void> {
@@ -170,6 +172,13 @@ export class DatabaseService {
   
     return detalleClienteProducto;
   }
+
+  async getClientesDeuda(): Promise<any> {
+    console.log('Funcion Database')
+    const resultados = await this.db.query(CLIENTES_QUERYS.getClientesDeuda);
+    console.log(JSON.stringify(resultados))
+    return resultados.values;
+  }
   
   async obtenerTablas(): Promise<void> {
     if (!this.db) {
@@ -245,6 +254,12 @@ export class DatabaseService {
 
   }
 
+  async ultimasTransacciones(): Promise <any>{
+    const resultados = await this.db.query(TRANSACCIONES_QUERY.getUltimasTransacciones)
+    console.log(JSON.stringify('Ultimas Transacciones DB', resultados.values))
+    return (resultados.values);
+  }
+
   async getProductos(): Promise<any>{
     const result = await this.db.query(PRODUCTOS_QUERY.getProductos)
     return result.values;
@@ -269,5 +284,23 @@ export class DatabaseService {
     console.log('Stock Actualizado: ',stockActualizado)
     await this.db.run(PRODUCTOS_QUERY.insertStock,[stockActualizado,idProducto])
   }
-  
+
+  async getResumen(): Promise<any>{
+    const totalDeudaResult = await this.db.query(RESUMEN_QUERYS.getDeudaTotal);
+    const totalVentasResult = await this.db.query(RESUMEN_QUERYS.getTotalVendido);
+    const totalPagosResult = await this.db.query(RESUMEN_QUERYS.getTotalPagado);
+
+    // Extraer los valores de las claves correspondientes
+    const totalDeuda = totalDeudaResult.values[0]?.Suma_Deuda || 0;
+    const totalVentas = totalVentasResult.values[0]?.Total_Vendido || 0;
+    const totalPagos = totalPagosResult.values[0]?.Total_Pagado || 0;
+
+    // Combinar los resultados en un objeto
+    const resumen = { totalDeuda, totalVentas, totalPagos };
+
+    // Mostrar en consola para verificar
+    console.log("Resumen:", resumen.totalDeuda, resumen.totalVentas, resumen.totalPagos);
+
+    return resumen; // Retornar el resumen
+  }
 }

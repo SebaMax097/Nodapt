@@ -23,6 +23,23 @@ export const TRANSACCIONES_QUERY = {
     insertPago: `INSERT INTO PAGOS (ID_Cliente, ID_Producto, Monto, Cantidad) VALUES (?,?,?,?);`,
 
     getTransacciones: `SELECT * FROM TRANSACCIONES;`,
+
+    getUltimasTransacciones: `
+        SELECT 
+        CLI.Nombre AS 'Cliente',
+        PR.Nombre AS 'Producto',
+        CASE 
+        WHEN (TRA.TIPO = 1) THEN 'VENTA'
+        ELSE 'PAGO'
+        END AS 'Tipo',
+        TRA.Valor,
+        TRA.Cantidad,
+        TRA.Fecha
+        FROM TRANSACCIONES TRA
+        JOIN CLIENTES CLI ON (TRA.ID_Cliente = CLI.ID)
+        JOIN PRODUCTOS PR ON (TRA.ID_Producto = PR.ID)
+        ORDER BY TRA.FECHA DESC;`,
+        
     getUltimasTransaccionesCliente: `
         SELECT 
         CLI.Nombre AS 'Cliente',

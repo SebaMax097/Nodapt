@@ -24,6 +24,7 @@ export class AddProductoPage {
     if(this.cantidad){
       if(this.idProducto!=0 || this.cantidad>0){
         this.database.agregarProducto(this.idProducto,this.cantidad)
+        alert("Producto agregado")
       }
     }
   }  

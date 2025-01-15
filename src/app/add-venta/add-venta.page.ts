@@ -64,17 +64,17 @@ export class AddVentaPage {
 
     if(this.precio){
       if(this.cantidad){
-        if (this.cantidad <= 0 || !Number.isInteger(this.cantidad)) {
-          console.error('La cantidad debe ser un número entero mayor a 0');
-          alert('La cantidad debe ser mayor a 0');
-          return;
-        }
-      
+        
         if (this.precio <= 0 || !Number.isInteger(this.precio)) {
           console.error('El precio debe ser un número entero mayor a 0');
           alert('El precio debe ser mayor a 0');
           return;
-        } 
+        }
+        if (this.cantidad <= 0 || !Number.isInteger(this.cantidad) || this.cantidad > this.precio) {
+          console.error('La cantidad debe ser un número entero mayor a 0');
+          alert('La cantidad debe ser mayor a 0');
+          return;
+        }
       
         this.database.insertarVenta(this.clientes[0].ID, this.idProducto, this.precio, this.cantidad)
         alert('Venta generada')
